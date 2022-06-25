@@ -1,17 +1,33 @@
-alert('hello, world');
-console.log(1);
+// strings
+console.log('hello, world');
 
-// modern variables are set using 2 methods
-// let sets a starting value for a variable but can be updated
-let age = 25;
-console.log(age);
+let email = 'mario@thenetninja.co.uk';
+console.log(email);
 
-age = 30;
-console.log(age);
+// string concatenation
+let firstName = 'Brandon';
+let lastName = 'Sanderson';
 
-// const sets a static variable and is not allowed to be updated
-const year = 1981;
-console.log(year);
+let fullName = firstName + ' ' + lastName;
+console.log(fullName);
 
-year = 2022;
-console.log(year);
+// getting characters
+console.log(fullName[0]);
+
+// string properties allow you to determine the properties of a string 
+// string length
+console.log(fullName.length);
+
+// string methods change the output of strings
+// some change the original variable, but others don't
+console.log(fullName.toUpperCase());
+console.log(fullName);
+let result = fullName.toLowerCase();
+console.log(result, fullName);
+
+// the string can be redifined using the method if you want to truly change it
+fullName = fullName.toLowerCase();
+console.log(fullName);
+
+let index = email.indexOf('@');
+console.log(index);
