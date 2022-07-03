@@ -1,15 +1,35 @@
-let age = 25;
+// type conversion
+let score = '100';
 
-// loose comparison (different types can still be equal)
+console.log(score + 1);
+console.log(score);
+console.log(typeof score);
+console.log(score ++); // I'm not sure what this is doing
+console.log(typeof score); // using the ++ on the string converted it into a number type
+console.log(score);
 
-console.log(age == 25);
-console.log(age == '25'); // js converted the string to a number
-console.log(age != 25);
-console.log(age != '25');
+score = Number(score);
+console.log(score);
+console.log(score + 1);
+console.log(score ++);
 
-// strict comparison (different types  cannot be equal)
+let result = Number('hello');
+console.log(result);
 
-console.log(age === 25);
-console.log(age === '25');
-console.log(age !== 25);
-console.log(age !== '25');
+result = Number('50');
+console.log(result, typeof result);
+
+result = String(50);
+console.log(result, typeof result);
+
+result = Boolean(100); // positive and negative values are truthy
+console.log(result, typeof result);
+
+result = Boolean(0); // zero is falsey
+console.log(result, typeof result);
+
+result = Boolean('0'); // strings of any length are truthy
+console.log(result, typeof result);
+
+result = Boolean(''); // empty strings are falsey
+console.log(result, typeof result);
