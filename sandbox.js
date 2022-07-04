@@ -1,36 +1,39 @@
-// while loops
-// we'll start with what a for loop looks like
-for(let i = 0; i < 5; i++){
-    console.log('in loop:', i);
-}
-console.log(`loop finished`);
-
-// while loops perform the same function with different syntax
-// we pull the initialization variable out of the while loop
+// do while loops
+// we'll start with what a while loop looks like
 let i = 0;
-
-// the condition stays in the same place
 while(i < 5){
-    console.log(`in loop: ${i}`);
-    // the final expression moves inside the code block (typically at the end of the block)
+    console.log(`value of i is ${i}`);
     i++;
 }
-console.log(`i = ${i}`);
+console.log(`the value of i is now ${i}`);
 
-// now showing how we can iterate through an array just like in a for loop
-// start by delcaring our array
-const names = ['shaun', 'mario', 'luigi'];
+// if we want the loop to execute the code block 
+// at least one time even if the condition has already been met 
+// we can use a do while loop
+// first we initialize i
+i = 5;
+console.log(`the value of i is now ${i}`);
 
-// I have to reset i back to zero
-i = 0
-
-// confirming that it has been reset
-console.log(`i = ${i}`);
-
-// performing the while loop
-while(i < names.length){
-    console.log(`in loop: ${i} and the name is ${names[i]}`);
+// then we throw in the code block with a do statement
+// this lets us run the code before checking the condition
+do{
+    console.log(`value of i is ${i}`);
     i++;
-}
+    // finally we make the conditional statment
+} while(i < 5);
 
-console.log(`loop finished and i = ${i}`);
+console.log(`the value of i is now ${i}`);
+
+// here's what happens if the condion hasn't already been met
+i = 3;
+console.log(`the value of i is now ${i}`);
+
+do{
+    console.log(`value of i is ${i}`);
+    i++;
+} while(i < 5);
+
+console.log(`the value of i is now ${i}`);
+// the code block doesn't get an extra run since we increment inside the code block
+// and check the condition before returning for another pass
+// once i hits 5 the while statement doesn't let us return to do
