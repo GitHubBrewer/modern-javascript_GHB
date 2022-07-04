@@ -1,39 +1,28 @@
-// do while loops
-// we'll start with what a while loop looks like
-let i = 0;
-while(i < 5){
-    console.log(`value of i is ${i}`);
-    i++;
+// if statements
+// these differe from loops in that they are only meant to run once
+
+let age = 20;
+
+if (age > 20) {
+    console.log('you are over 20 years old');
 }
-console.log(`the value of i is now ${i}`);
 
-// if we want the loop to execute the code block 
-// at least one time even if the condition has already been met 
-// we can use a do while loop
-// first we initialize i
-i = 5;
-console.log(`the value of i is now ${i}`);
+age = 21;
+if (age > 20) {
+    console.log('you are over 20 years old');
+}
 
-// then we throw in the code block with a do statement
-// this lets us run the code before checking the condition
-do{
-    console.log(`value of i is ${i}`);
-    i++;
-    // finally we make the conditional statment
-} while(i < 5);
+const ninjas = ['shaun', 'ryu', 'chun-li', 'yoshi'];
 
-console.log(`the value of i is now ${i}`);
+if (ninjas.length > 3) {
+    console.log(`There are ${ninjas.length} ninjas. That's a lot of ninjas!`);
+}
 
-// here's what happens if the condion hasn't already been met
-i = 3;
-console.log(`the value of i is now ${i}`);
+// we can use if statements to check things like password length or complexity
+const password = 'pass';
 
-do{
-    console.log(`value of i is ${i}`);
-    i++;
-} while(i < 5);
-
-console.log(`the value of i is now ${i}`);
-// the code block doesn't get an extra run since we increment inside the code block
-// and check the condition before returning for another pass
-// once i hits 5 the while statement doesn't let us return to do
+if (password.length >= 8) {
+    console.log('that password is long enough');
+}
+// unfortunately this only provides feedback in one state
+// we can tell you if it's long enough OR too short, but not both
