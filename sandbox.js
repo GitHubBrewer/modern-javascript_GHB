@@ -1,20 +1,44 @@
-// break and continue
-// break is used to leave the loop when a conditional statement is TRUE
-// continue skips the rest of the code block and starts the next iteration when a coditional statement is TRUE
+// switch statements
+// they use strict equality to evaluate
+// allows you to evaluate against several possible cases
+// and provide different codes based on the case
+// also provides a default code block if none of the cases match
+const grade = 'D';
 
-const scores = [50, 25, 0, 30, 100, 20, 10];
-
-for (let i = 0; i < scores.length; i++) {
+// using if statements
+if (grade === 'A') {
     
-    if(scores[i] === 0){
-        continue;
-    }
+} else if(grade === 'B'){
 
-    console.log(`your score: ${scores[i]}`);
+} else if(grade === 'C'){
 
-    if(scores[i] === 100){
-        console.log('congratulations, you got the top score!');
+} else if(grade === 'D'){
+
+} else if(grade === 'F'){
+    
+} else {
+
+}
+
+// using switch statement
+
+switch (grade) {
+    case 'A':
+        console.log(`You got an ${grade}`);
         break;
-    }
-    
+    case 'B':
+        console.log(`You got an ${grade}`);
+        break;
+    case 'C':
+        console.log(`You got an ${grade}`);
+        break;
+    case 'D':
+        console.log(`You got an ${grade}`);
+        break;
+    case 'F':
+        console.log(`You got an ${grade}`);
+        break;
+                                        
+    default:
+        console.log('Not a valid grade');
 }
