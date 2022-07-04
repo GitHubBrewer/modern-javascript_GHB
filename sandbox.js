@@ -1,35 +1,24 @@
-// type conversion
-let score = '100';
+// for loops
+// contains 4 elements
+// for(a; b; c){d}
+// a = initialization variable
+// b = condition (evaluates to true or false) if true it runs the code block
+// c = final expression (executes at the end of the code block)
+// d = code block
+for(let i = 0; i < 5; i++){
+    console.log('in loop:', i);
+}
 
-console.log(score + 1);
-console.log(score);
-console.log(typeof score);
-console.log(score ++); // I'm not sure what this is doing
-console.log(typeof score); // using the ++ on the string converted it into a number type
-console.log(score);
+console.log(`loop finished`);
 
-score = Number(score);
-console.log(score);
-console.log(score + 1);
-console.log(score ++);
+const names = ['shaun', 'mario', 'luigi'];
 
-let result = Number('hello');
-console.log(result);
-
-result = Number('50');
-console.log(result, typeof result);
-
-result = String(50);
-console.log(result, typeof result);
-
-result = Boolean(100); // positive and negative values are truthy
-console.log(result, typeof result);
-
-result = Boolean(0); // zero is falsey
-console.log(result, typeof result);
-
-result = Boolean('0'); // strings of any length are truthy
-console.log(result, typeof result);
-
-result = Boolean(''); // empty strings are falsey
-console.log(result, typeof result);
+for(let i = 0; i < names.length; i++){
+    // square brackets are used to denote the index we want
+    // in a string that's a specific character, in an array that's an entire element
+    console.log(`the name in position ${i} is ${names[i]}`);
+    // we can use the loop to assist in creating some html
+    let html = `<div>${names[i]}</div>`;
+    console.log(html);
+}
+console.log(`loop finished`);
