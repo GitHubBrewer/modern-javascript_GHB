@@ -1,44 +1,19 @@
-// switch statements
-// they use strict equality to evaluate
-// allows you to evaluate against several possible cases
-// and provide different codes based on the case
-// also provides a default code block if none of the cases match
-const grade = 'D';
+// variables and block level scope
+// variable set with global scope
+let age = 30;
 
-// using if statements
-if (grade === 'A') {
-    
-} else if(grade === 'B'){
+// let age = 50;
 
-} else if(grade === 'C'){
-
-} else if(grade === 'D'){
-
-} else if(grade === 'F'){
-    
-} else {
+if (true) {
+    // local scope for age and can only be accessed inside this code block
+   let age = 40;
+   let name = 'shaun'
+   console.log(`inside 1st code block age = ${age} and name = ${name}`);
+    if (true) {
+        let age = 50;
+        console.log(`inside 2nd code block age = ${age} and name = ${name}`);
+    }
 
 }
-
-// using switch statement
-
-switch (grade) {
-    case 'A':
-        console.log(`You got an ${grade}`);
-        break;
-    case 'B':
-        console.log(`You got an ${grade}`);
-        break;
-    case 'C':
-        console.log(`You got an ${grade}`);
-        break;
-    case 'D':
-        console.log(`You got an ${grade}`);
-        break;
-    case 'F':
-        console.log(`You got an ${grade}`);
-        break;
-                                        
-    default:
-        console.log('Not a valid grade');
-}
+// we can't access variables created inside code blocks
+console.log(`outside code block age = ${age} and name = ${name}`);
