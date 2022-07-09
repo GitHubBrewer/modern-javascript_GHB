@@ -1,32 +1,32 @@
-// functions can be created two different ways
-    // they can be declared or they can be expressed
-// declared functions are hoisted by JS meaning they are read as though they were at the top of the file
-// this allows them to be called/invoked before actually declaring them
-greet();
-greet();
-greet();
-
-// expressed functions are not hoisted and so must be expressed before they are invoked/called
-// comment out the call below to see the rest of the code execute
-speak();
-// speak();
-// speak();
-
-// function declaration
-// we start with the function statement and then name the function
-// we can pass in (optional variables) and follow it with the {code block} 
-function greet() {
-    console.log('hello there');
-}
-
-// function expression
-// we start with a const to prevent changing the function by mistake
-// we name the function then follow the same process as the declaration with one addition
-// expressions MUST end with the ; after the code block since we are expressing it through a variable
-const speak = function () {
-  console.log('good day');
+// arguments and parameters
+// these terms are used interchangebly but they are not the same
+// parameters are defined in the function
+// arguments are passed into the function when it's called
+// start with a function expression
+// we add a parameter to the function this time called name
+const speak = function(name, time) {
+    // we can then use the parameter in the code block
+    console.log(`good ${time} ${name}!`);
 };
 
+// now we pass in an argument to be used in the function
+speak('mario', 'morning');
+// note that the code parameter can't be called outside the code block as it only has local/block scope
+console.log(name);
+
+// what happens if we fail to pass in any arguments
 speak();
-speak();
-speak();
+
+// to avoid this we can define default values when we establish the parameters
+const speakDefault = function(name = 'luigi', time = 'night') {
+    console.log(`good ${time} ${name}`);
+};
+// now we can call the function and receive default values
+speakDefault();
+// or override with my own values
+speakDefault('mario','morning');
+// or only override with one value
+speakDefault('mario');
+// i'm not sure how to only pass in the 2nd argument
+speakDefault('','morning');
+
