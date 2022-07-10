@@ -1,32 +1,43 @@
-// arguments and parameters
-// these terms are used interchangebly but they are not the same
-// parameters are defined in the function
-// arguments are passed into the function when it's called
-// start with a function expression
-// we add a parameter to the function this time called name
-const speak = function(name, time) {
-    // we can then use the parameter in the code block
-    console.log(`good ${time} ${name}!`);
+// returning values
+// begin with a function expression with a parameter of radius
+const calcAreaLogged = function(radius) {
+    // define variable with the calculation of a circle's area when it's radius is passed in
+    let areaLogged = 3.14 * radius**2;
+    // now we can log the result to the console
+    console.log(areaLogged);
 };
 
-// now we pass in an argument to be used in the function
-speak('mario', 'morning');
-// note that the code parameter can't be called outside the code block as it only has local/block scope
-console.log(name);
+// here we call the function and pass in an argument of 5 for the radius
+// we can see the result in the console
+calcAreaLogged(5);
+// logging it to the console in the code block above doesn't let us do anything with areaVerbose later
+// areaVerbose is a local scope variable that can't be used outside the code block
+// console.log(areaLogged); //un-comment this line to see
 
-// what happens if we fail to pass in any arguments
-speak();
-
-// to avoid this we can define default values when we establish the parameters
-const speakDefault = function(name = 'luigi', time = 'night') {
-    console.log(`good ${time} ${name}`);
+// instead we can return the area as part of the function so it can be used
+const calcAreaReturned = function(radius) {
+    let areaReturned = 3.14 * radius**2;
+    return areaReturned;
 };
-// now we can call the function and receive default values
-speakDefault();
-// or override with my own values
-speakDefault('mario','morning');
-// or only override with one value
-speakDefault('mario');
-// i'm not sure how to only pass in the 2nd argument
-speakDefault('','morning');
+// we can now call the function but event though the value is returned we need to do a little more work to show that
+calcAreaReturned(6);
+// we need to store the value in memory somewhere by storing it in a variable
+const areaReturned = calcAreaReturned(6);
+console.log(areaReturned);
 
+// we can clean the function expression up by combining the calculation and return call in one line
+const calcArea = function(radius) {
+    return 3.14 * radius**2;
+};
+// we store the returned value in a variable
+const area = calcArea(7);
+// now we can use the returned value outside the block scope
+console.log(area);
+
+// we can even use it in other functions
+const calcVol = function(area,height) {
+    return area * height;
+};
+
+const vol = calcVol(area,5);
+console.log(vol);
