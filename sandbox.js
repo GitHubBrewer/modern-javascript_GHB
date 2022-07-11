@@ -1,13 +1,32 @@
-// get a reference to the ul (unordered list)
-const ul = document.querySelector('.people');
+// object literals
+// created with {}
+// filled with key:value pairs separated by ,
 
-const people = ['mario', 'luigi', 'ryu', 'chun-li', 'shaun'];
+let user = {
+    name: 'crystal',
+    age: 30,
+    location: 'berlin',
+    email: 'crystal@thenetninja.co.uk',
+    blogs: ['why mac and cheese rules', '10 things to make with marmite']
+};
 
-let html = ``;
+console.log(user);
+// values can be accessed by dot notation
+console.log(user.name);
 
-people.forEach(person => {
-    html += `<li style="color: purple">${person}</li>`;
-});
+// values can be updated by dot notation
+user.age = 35;
+console.log(user.age);
 
-console.log(html);
-ul.innerHTML = html;
+// values can also be accessed by [] notation
+console.log(user['location']);
+// and updated by [] notation
+user['name'] = 'chun-li';
+console.log(user['name']);
+
+// an advantage to [] notation is the ability to pass in variables
+let key = 'location';
+console.log(user[key]);
+// we couldn't use user.key since JS would be looking for a key:value called key
+
+console.log(typeof user);
