@@ -1,40 +1,37 @@
-// primitive vs reference types
-// primitive types are stored in the stack in memory (limited space but fast access)
-    // numbers
-    // strings
-    // Booleans
-    // null
-    // undefined
-    // symbols
-// reference types are stored in the heap in memory (more space but slower access)
-    // all types of objects
-        // object literals
-        // arrays
-        // functions
-        // dates, Math, etc.
-// primitive values
-let scoreOne = 50;
-let scoreTwo = scoreOne;
+// Document Object Model (DOM)
 
-console.log(`scoreOne: ${scoreOne}, scoreTwo: ${scoreTwo}`);
+// in order to affect the DOM we need a way to reference things within it
+// we can query the dom with these methods
 
+// this queries the first instand of a p tag
+const para = document.querySelector('p');
+console.log(para);
 
-// because primitive values are stored in the stack they keep their values unless explicitly updated
-// scoreTwo is already set to the intial value scoreOne had (50) and updating scoreOne doesn't update scoreTwo
-scoreOne = 100;
-console.log(`scoreOne: ${scoreOne}, scoreTwo: ${scoreTwo}`);
+// this queries the first instance of any tag with an error class
+const paraError = document.querySelector('.error');
+console.log(paraError);
 
-// reference values
-// these values are stored on the heap with a pointer from the variable to the values stored in the stack
-const userOne = { name: 'ryu', score: 50};
-// this adds a new record in the stack but points to the same array in the heap, not a second array
-const userTwo = userOne;
+// this queries the first instance of a div tag with the error class
+const divError = document.querySelector('div.error');
+console.log(divError);
 
-console.log(userOne, userTwo);
-// because the pointers are stored in the stack and both point to the same array, updating the array updates for both
-userOne.name = 'chun-li';
-console.log(userOne, userTwo);
+// we can also query multiple items this way
+// this queries all p tags (remember to use plural names for multi-items)
+const paras = document.querySelectorAll('p');
+console.log(paras);
 
-// it also means that updating userTwo will update userOne
-userTwo.score = 100;
-console.log(userOne, userTwo);
+// it returns a NodeList that looks like an array but isn't
+// we can select specific items from the list with []
+console.log(paras[2]);
+
+// we can also use methods on it, though not all methods
+paras.forEach(para => {
+    console.log(para);
+});
+
+const errors = document.querySelectorAll('.error');
+console.log(errors);
+
+errors.forEach(error => {
+    console.log(error);
+});
