@@ -1,11 +1,24 @@
 // object literals
 
+// adding that we can store objects in arrays
+const blogArray = [
+    {title: 'why mac and cheese rules', likes: 30},
+    {title: '10 things to make with marmite', likes: 50}
+];
+
+console.log(blogArray);
+
 let user = {
     name: 'crystal',
     age: 30,
     email: 'crystal@thenetninja.co.uk',
     location: 'berlin',
-    blogs: ['why mac and cheese rules', '10 things to make with marmite'],
+    premium: false,
+    // updating to store the object created above in this array
+    blogs: [
+        {title: 'why mac and cheese rules', likes: 30},
+        {title: '10 things to make with marmite', likes: 50}    
+    ],
     // methods are created as key:value pairs as well
     // the key is the method name and the value is the function
     login: function(){
@@ -25,16 +38,30 @@ let user = {
         console.log(this.blogs);
         console.log(`${this.name} has written the following blogs:`);
         this.blogs.forEach(blog => {
-            console.log(blog);
+            console.log(blog.title);
         });
     },
     // finally we can clean up the functions inside objects by removing the word function and backing it up to the key
     logBlogsClean(){
         console.log('this looks better');
+        // updating to call the keys in the new object we stored in the array
         console.log(`${this.name} has written the following blogs:`);
         this.blogs.forEach(blog => {
-            console.log(blog);
+            console.log(blog.title);
         });
+    },
+    // adding the likes
+    logBlogsLikes(){
+        this.blogs.forEach(blog => {
+            console.log(`${this.name} received ${blog.likes} likes for their blog titled: ${blog.title}`)
+        });
+    },
+    logPremium(){
+        if (this.premium === true) {
+            console.log(`Thanks for being a premium member ${this.name}`)
+        } else {
+            console.log(`You can support our mission ${this.name} by subscribing to our premium tier today!`)
+        };
     }
 };
 
@@ -48,3 +75,5 @@ user.logBlogsArrow();
 // regular functions keep this at the level it is coded
 user.logBlogs();
 user.logBlogsClean();
+user.logBlogsLikes();
+user.logPremium();
