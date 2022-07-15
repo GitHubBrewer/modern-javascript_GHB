@@ -1,37 +1,37 @@
-// Document Object Model (DOM)
+// other ways to query the DOM
 
-// in order to affect the DOM we need a way to reference things within it
-// we can query the dom with these methods
+// get an element by ID
+const title = document.getElementById('page-title');
+console.log(title);
 
-// this queries the first instand of a p tag
-const para = document.querySelector('p');
-console.log(para);
-
-// this queries the first instance of any tag with an error class
-const paraError = document.querySelector('.error');
-console.log(paraError);
-
-// this queries the first instance of a div tag with the error class
-const divError = document.querySelector('div.error');
-console.log(divError);
-
-// we can also query multiple items this way
-// this queries all p tags (remember to use plural names for multi-items)
-const paras = document.querySelectorAll('p');
-console.log(paras);
-
-// it returns a NodeList that looks like an array but isn't
-// we can select specific items from the list with []
-console.log(paras[2]);
-
-// we can also use methods on it, though not all methods
-paras.forEach(para => {
-    console.log(para);
-});
-
-const errors = document.querySelectorAll('.error');
+// get an element by their class name
+const errors = document.getElementsByClassName('error');
+// note that this returns an HTML collection instead of a node list
 console.log(errors);
+// we can still select a given element within using []
+console.log(errors[1]);
+// we can't use the forEach method on it though
+// errors.forEach(error => {
+//     console.log(error);
+// });
 
-errors.forEach(error => {
-    console.log(error);
-});
+// get an element by their tag name
+const paras = document.getElementsByTagName('p');
+// also returns an html collection
+console.log(paras);
+console.log(paras[0]);
+
+// both querySelector & getElements work to reference the DOM
+// querySelector is usually easier and more flexible
+// we could still use forEach and other methods on get Elements, but wou;d have to convert it to an array first
+
+// methods allowed by each
+    // HTML collections
+        // .item()
+        // .namedItem()
+    // Node List
+        // .item()
+        // .entries()
+        // .forEach()
+        // .keys()
+        // .values()
