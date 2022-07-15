@@ -1,37 +1,30 @@
-// other ways to query the DOM
+// now we can start making changes to the dom since we can reference it accurately
+// let's grab the first p tag
+const para = document.querySelector('p');
 
-// get an element by ID
-const title = document.getElementById('page-title');
-console.log(title);
+// we want the text inside the tag, not the whole tag
+console.log(para.innerText);
+// now we can change the text or append the text
+para.innerText = 'ninjas are awesome!';
+// para.innerText += 'ninjas are awesome!';
 
-// get an element by their class name
-const errors = document.getElementsByClassName('error');
-// note that this returns an HTML collection instead of a node list
-console.log(errors);
-// we can still select a given element within using []
-console.log(errors[1]);
-// we can't use the forEach method on it though
-// errors.forEach(error => {
-//     console.log(error);
-// });
+// or we could cycle through all the p tags and append new text
+const paras = document.querySelectorAll('p');
+paras.forEach(para => {
+    console.log(para.innerText);
+    para.innerText += ' new text';
+});
 
-// get an element by their tag name
-const paras = document.getElementsByTagName('p');
-// also returns an html collection
-console.log(paras);
-console.log(paras[0]);
+// we can also change the HTML
+const content = document.querySelector('.content');
+console.log(content.innerHTML);
+// here we are appending to the HTML inside the node that has the content class
+content.innerHTML += '<h2>this is new html</h2>'
 
-// both querySelector & getElements work to reference the DOM
-// querySelector is usually easier and more flexible
-// we could still use forEach and other methods on get Elements, but wou;d have to convert it to an array first
+// we can also pretend that we are pulling in info from a DB
+const people = ['mario', 'luigi', 'yoshi'];
 
-// methods allowed by each
-    // HTML collections
-        // .item()
-        // .namedItem()
-    // Node List
-        // .item()
-        // .entries()
-        // .forEach()
-        // .keys()
-        // .values()
+// now we cycle through each element in the array and append it to the node that has the content class
+people.forEach(person => {
+    content.innerHTML += `<p>${person}</p>`;
+});
