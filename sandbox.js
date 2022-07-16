@@ -1,21 +1,35 @@
-// we've seen how to modify elements and attibutes and how to add addtributes
-// how do we add additional attributes to existing ones
-const title = document.querySelector('h1');
-// when we try to add a margin to the style attribute that already is coloring the text orange
-title.setAttribute('style', 'margin: 50px;'); 
-// this has overwritten the color style attribute. 
-// let's set it back to orange
-title.setAttribute('style', 'color: orange;'); 
-// we can actually access the individual style properties instead
-// here we show all possible CSS style properties
-console.log(title.style);
-// now we grab just the color
-console.log(title.style.color);
-// now we can access just the one we want to update without affecting the others
-title.style.margin = '50px';
-// we can also update them directly
-title.style.color = 'crimson';
-// for style properties that are "double-barrel" like font-size, we remove the - and make it camel-case
-title.style.fontSize = '60px';
-// to remove a style property, set it to an empty string
-title.style.margin = '';
+// lets add and remove classes
+// grab the h2 tag
+const content = document.querySelector('h2');
+// we can get a  DOMTokenList using the classList property
+console.log(content.classList);
+// we can add a class
+content.classList.add('error');
+// remove the class
+content.classList.remove('error');
+// add a different class
+content.classList.add('success');
+// add another class
+content.classList.add('test');
+
+// now lets apply a class based on the text in the p tag
+// grab all the p tags
+const paras = document.querySelectorAll('p');
+
+// now check to see if the text contains error or success and add the corresponding class
+paras.forEach(para => {
+   if (para.innerText.includes('error')) {
+    para.setAttribute('class', 'error');
+   } else if (para.innerText.includes('success')) {
+    para.setAttribute('class', 'success');
+   };
+});
+// could also use para.textContent to grab all text even if set to hidden
+// could use classList.add instead if you want to ensure you don't overwrite other existing classes
+
+// we can also toggle classes on/off with the toggle method
+const title = document.querySelector('.title');
+// checks to see if the class is there and adds/removes based on what it finds
+title.classList.toggle('test');
+
+title.classList.toggle('test');
