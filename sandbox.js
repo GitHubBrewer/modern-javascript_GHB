@@ -22,3 +22,6 @@ button.addEventListener('click', () => {
     ul.prepend(newLi);
     // ul.append(newLi);
 });
+// note that any new li tags are not affected by the remove method above
+// the eventListeners are loaded at page load and aren't applied to anything added after page load
+// it also appears that the original li tags are no longer affected once new ones are added
