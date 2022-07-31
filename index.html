@@ -8,24 +8,34 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <title>JavaScript</title>
-</head>
-<body>
-    <button>click me</button>
+      <style>
+        body{
+          background: #eee;
+        }
+        form{
+          max-width: 200px;
+          margin: 40px auto;
+          background: white;
+          padding: 10px;
+        }
+        input{
+          display: block;
+          margin: 10px auto;
+          padding: 4px;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <form class="signup-form">
+        <input type="text" id="username" placeholder="username">
+        <!-- we could also use the name attribute instead of ID -->
+        <!-- <input type="text" name="username" placeholder="username"> -->
+        <input type="submit" value="submit">
+      </form>
 
-    <div class="popup-wrapper">
-        <div class="popup">
-            <div class="popup-close">x</div>
-            <div class="popup-content">
-                <h2>NINJA SALE!!</h2>
-                <p>50% off all ninja clothing, don't miss out</p>
-                <a href="#">view clothing</a>
-            </div>
-        </div>
-    </div>
-
-    <script src="popup.js"></script>  
-    <!-- <script src="sandbox.js"></script> -->
-</body>
+      <script src="sandbox.js"></script>
+    </body>
 </html>
