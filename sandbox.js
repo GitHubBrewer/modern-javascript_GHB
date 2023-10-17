@@ -6,13 +6,23 @@ for(let i = 0; i < 5; i++){
 console.log(`loop finished`);
 
 // while loops perform the same function with different syntax
-// we pull the initialization variable out of the while loop
+/*
+while(i < 5){
+    console.log('in loop: ', i);
+}
+*/
+// this will error out because we haven't initialized i since the while loop syntax is different
+// it will also loop forever as we aren't incrementing i
+
+// instead we pull the initialization variable out of the while loop
 let i = 0;
 
 // the condition stays in the same place
 while(i < 5){
+    // now we have the code block (what we're doing each time we loop through)
+    // remember that we use {} in a string and [] when referencing an array
     console.log(`in loop: ${i}`);
-    // the final expression moves inside the code block (typically at the end of the block)
+    // the final expression (what we change each time we loop) moves inside the code block (typically at the end of the block)
     i++;
 }
 console.log(`i = ${i}`);
