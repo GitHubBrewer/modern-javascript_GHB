@@ -1,5 +1,6 @@
 // else if statements
-// we'll start with an else statement
+// we'll start with an if...else statement
+console.log(`here's an if...else statement`);
 let password = 'p@ss';
 
 if (password.length >= 8) {
@@ -9,6 +10,7 @@ if (password.length >= 8) {
 }
 
 // here it is if the password meets the first condition
+console.log(`here's another if...else statement`);
 password = 'p@ssword';
 
 if (password.length >= 8) {
@@ -18,6 +20,7 @@ if (password.length >= 8) {
 }
 
 // if we want to check more than two conditions we can use else if statements
+console.log(`now let's see an if...else with an else if clause`);
 password = 'p@ss';
 
 if (password.length >= 12) {
