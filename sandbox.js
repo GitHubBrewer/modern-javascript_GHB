@@ -1,5 +1,6 @@
 // do while loops
 // we'll start with what a while loop looks like
+console.log('here is a while loop');
 let i = 0;
 while(i < 5){
     console.log(`value of i is ${i}`);
@@ -7,6 +8,7 @@ while(i < 5){
 }
 console.log(`the value of i is now ${i}`);
 
+console.log("now let's look at a do while loop");
 // if we want the loop to execute the code block 
 // at least one time even if the condition has already been met 
 // we can use a do while loop
@@ -15,16 +17,19 @@ i = 5;
 console.log(`the value of i is now ${i}`);
 
 // then we throw in the code block with a do statement
-// this lets us run the code before checking the condition
+// this lets us run (do) the code before checking the condition
 do{
     console.log(`value of i is ${i}`);
+    // Incrementing i isn't necessary in this specific example,
+    // but does ensure the loop breaks out if the condition isn't met 
     i++;
     // finally we make the conditional statment
 } while(i < 5);
 
 console.log(`the value of i is now ${i}`);
 
-// here's what happens if the condion hasn't already been met
+console.log("and now a do while where the condition isn't already met");
+// here's what happens if the condition hasn't already been met
 i = 3;
 console.log(`the value of i is now ${i}`);
 
