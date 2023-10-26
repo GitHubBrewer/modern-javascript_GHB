@@ -20,7 +20,7 @@ console.log ("Now let's try doing this on an array of passwords");
 // creating an array of passwords
 let passwords = ["pass","password","p@ssword","p@ssword1234"];
 
-i = 0
+let i = 0
 
 while (i < passwords.length){
     if (passwords[i].length >= 12 && passwords[i].includes('@')) {
@@ -38,3 +38,21 @@ while (i < passwords.length){
         i++;
     }
 }
+
+// this whole ststement above would be better as a for statement instead
+// I can get rid of the i++ at the end of each if/else if/else statement
+// I can also put the i declaration in the for expression
+
+console.log(`let's try this again with a for loop instead of the while loop`)
+for(let i = 0; i < passwords.length; i++){
+    if (passwords[i].length >= 12 && passwords[i].includes('@')) {
+        console.log(`"${passwords[i]}" is a mighty strong password!`);
+    } else if (passwords[i].length >= 8 && !passwords[i].includes('@')) {
+        console.log(`"${passwords[i]}" is long enough at ${passwords[i].length} characters, but could be stronger.`);
+    } else if (passwords[i].includes('@') && passwords[i].length > 5) {
+        console.log(`"${passwords[i]}" has the potential to be a mighty strong password, but it's a little short at only ${passwords[i].length} characters.`);
+    } else {
+        console.log(`C'mon, you can do better! "${passwords[i]}" is only ${passwords[i].length} characters long!`);
+    }
+}
+
