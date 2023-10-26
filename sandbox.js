@@ -1,5 +1,6 @@
 // variables and block level scope
-// variable set with global scope
+
+// example of a variable set with global scope
 let age = 30;
 
 // let age = 50;
@@ -22,4 +23,4 @@ if (true) {
 }
 // we can't access variables created inside code blocks as seen with the name variable
 // unless they are defined with the older var statement
-console.log(`outside code block age = ${age} and name = ${name} and test = ${test}`);
+console.log(`outside code block age = ${age} and name = ${name} and test = ${test} even though test wasn't defined globally`);
