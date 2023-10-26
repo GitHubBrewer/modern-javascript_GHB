@@ -26,6 +26,7 @@ while (i < passwords.length){
     if (passwords[i].length >= 12 && passwords[i].includes('@')) {
         console.log(`"${passwords[i]}" is a mighty strong password!`);
         i++;
+// note the use of the ! operator to test if the password DOES NOT include the @ symbol        
     } else if (passwords[i].length >= 8 && !passwords[i].includes('@')) {
         console.log(`"${passwords[i]}" is long enough at ${passwords[i].length} characters, but could be stronger.`);
         i++;
