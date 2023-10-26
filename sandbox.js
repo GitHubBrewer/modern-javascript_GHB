@@ -21,6 +21,11 @@ if (grade === 'A') {
 }
 
 // using switch statement
+/* 
+switch(variable to be evaluated){
+     code block;
+ } 
+ */
 
 switch (grade) {
     case 'A':
@@ -38,7 +43,7 @@ switch (grade) {
     case 'F':
         console.log(`You got an ${grade}`);
         break;
-                                        
+    // this is what is used when nothing matches the vairable
     default:
         console.log('Not a valid grade');
 }
