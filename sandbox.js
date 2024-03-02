@@ -14,10 +14,23 @@ let user = {
     logout: function(){
         console.log('the user logged out');
     },
-    logBlogs: function(){
-
+    // based on my present understanding of functions in objects
+    // here is how I thought we can log out the names of each blog title
+    logBlogsFor: function(){
+        for (let i = 0; i < user.blogs.length; i++){
+            console.log(`"${user.blogs[i]}"`);
+        }
+    },
+    logBlogsWhile: function(){
+        let i = 0;
+        while (i < 2){
+            console.log(user.blogs[i]);
+        i++;
+        }
     }
 };
 
 user.login();
 user.logout();
+user.logBlogsFor();
+user.logBlogsWhile();
