@@ -1,6 +1,8 @@
 // Math object
-
+// this is a built-in object that we can use
 console.log(Math);
+
+// it has several functions available for us to use
 console.log(Math.PI);
 console.log(Math.E);
 
