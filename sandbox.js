@@ -12,6 +12,7 @@
         // arrays
         // functions
         // dates, Math, etc.
+
 // primitive values
 let scoreOne = 50;
 let scoreTwo = scoreOne;
