@@ -18,4 +18,5 @@ title.style.color = 'crimson';
 // for style properties that are "double-barrel" like font-size, we remove the - and make it camel-case
 title.style.fontSize = '60px';
 // to remove a style property, set it to an empty string
+// this will overwrite previous entries and even remove it if it's in the html already
 title.style.margin = '';
