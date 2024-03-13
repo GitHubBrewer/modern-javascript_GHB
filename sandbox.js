@@ -9,6 +9,7 @@ button.addEventListener('click', () => {
     console.log('you clicked me');
 });
 // it doesn't have to be buttons that we can listen on, any element can have a listener attached
+// https://developer.mozilla.org/en-US/docs/Web/Events
 const items = document.querySelectorAll('li');
 // the DOM returns a NodeList that we can apply the forEach method on
 console.log(items);
@@ -23,7 +24,8 @@ items.forEach(item => {
         console.log(e.target);
         // we can also get the target using our item parameter we specified in the original callback function
         // these return the same result and you can use either in this situation
-        // we default to e.target because we don't always cycle through so we don't always have the parameter from a parent callback function
+        // we default to e.target because we don't always cycle through 
+        // if we don't cycle, then we don't always have the parameter from a parent callback function
         // also e.target can help with event delegation that we'll see later
         console.log(item);
         // here we are accessing the innerText
