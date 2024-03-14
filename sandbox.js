@@ -14,13 +14,16 @@ const button = document.querySelector('button');
 // listen for the button click
 button.addEventListener('click', () => {
     // option 1 adds to the html directly (only allows append)
-    ul.innerHTML += '<li>option 1 something new</li>'
+    ul.innerHTML += '<li>option 1 append something new</li>'
     // option 2 creates the element
-    const newLi = document.createElement('li');
-    newLi.textContent = 'option 2 something new';
+    const newLiPre = document.createElement('li');
+    newLiPre.textContent = 'option 2 something new prepended';
     // then we decide if we want to append or prepend using a method and passing in the variable we created
-    ul.prepend(newLi);
-    // ul.append(newLi);
+    ul.prepend(newLiPre);
+    // you can't do both so I created a separate element for appending
+    const newLiAp = document.createElement('li');
+    newLiAp.textContent = 'option 3 something new appended'
+    ul.append(newLiAp);
 });
 // note that any new li tags are not affected by the remove method above
 // the eventListeners are loaded at page load and aren't applied to anything added after page load
