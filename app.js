@@ -5,7 +5,9 @@ const form = document.querySelector('.quiz-form');
 // I will use this to access the result section to remove the d-none class after submit
 const result = document.querySelector('.result');
 // I will use this to change the score in the result section after submit
-const finalScore = document.querySelector('span');
+    // in shaun's answer this is done inside the callback function
+    // I agree with this change since it protects us from other span tags that may be added later
+// const finalScore = document.querySelector('span');
 
 // here we listen for the submit action
 form.addEventListener('submit', e => {
@@ -24,8 +26,18 @@ form.addEventListener('submit', e => {
         }
     });
     console.log(score);
+    // shaun updates the score in the span before revealing it
+    // I agree that this is better to avoid displaying the result before it is updated
+    // textContent is also better than innerText since it also grabs hidden text
+    result.querySelector('span').textContent = `${score}%`;
     // I initially tried to toggle the class, but that lead to hiding it again if I update my answers and resubmit
+    // this is unchanged
     result.classList.remove('d-none');
     // I initially though I needed to format as finalScore.innerText(template string) but errored out
-    finalScore.innerText = `${score}%`;
+        // this now occurs before removing the d-none class
+    // finalScore.innerText = `${score}%`;
+
+    // last note is that my window was large enough to see the submitted score
+    // on a smaller screen the user would have to know to scroll up
+    // we'll address that next
 });
