@@ -22,25 +22,40 @@ form.addEventListener('submit', e => {
         }
     });
     scrollTo(0,0);
-    result.querySelector('span').textContent = `${score}%`;
-    result.classList.remove('d-none');    
+    // result.querySelector('span').textContent = `${score}%`;
+    result.classList.remove('d-none');   
+    
+    // animate the score
+    let output = 0;
+    const timer = setInterval(() => {
+        result.querySelector('span').textContent = `${output}%`;
+        if(output === score){
+            clearInterval(timer);
+        } else {
+            output++;
+        }
+    }, 10);    
 });
 
-// window object (global object)
-
-// the window object is the highest level object in JS, it is what everything else is acting upon
-// because it is so fundamental, it is assumed everything is acting on it, so we don't need to specify, it is implied
+// to animate the score we are going to use a new function
 /*
-console.log('hello');
-window.console.log('window hello');
-
-console.log(document.querySelector('form'));
-console.log(window.document.querySelector('form'));
-
-alert('hello');
-window.alert('hello');
-
-setTimeout(() => {
-    alert('hello ninjas');
+we saw that we can use setTimeout to wait for a period and do a thing
+setTimout(() => {
+    do some stuff;
 }, 3000);
+
+if we want to do that repeatedly every x miliseconds we will use setInterval
+setInterval(() => {
+    do the thing;
+}, 1000);
+
+if we want to break out of the function we need to assign the function to a const so we can clearInterval inside it
+let i = 0;
+const timer = setInterval(() => {
+    console.log('hello');
+    i++;
+    if(i === 5){
+        clearInterval(timer);
+    }
+}, 1000);
 */
