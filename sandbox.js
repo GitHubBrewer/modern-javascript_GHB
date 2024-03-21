@@ -1,38 +1,26 @@
-// filter method
-const scores = [10, 30, 15, 25, 50, 40, 5];
+// map method
+// takes an array, iterates through it and pushes the updated value into a new array
+const prices = [20, 10, 30, 25, 15, 40, 80, 5];
 
-scores.filter(score => {
-    // cycles through each item in the array and if true keeps the item and if false removes the item from the array
-    // return true;
-    return score > 20;
-});
+const salePrices = prices.map(price => price / 2);
+console.log(salePrices);
 
-// this method is non-destructive
-console.log(scores);
-
-// to output the result of the method we will assign it to a variable
-const filteredScores = scores.filter(score => {    
-    return score > 20;
-});
-
-console.log(filteredScores);
-console.log(scores);
-
-const users = [
-    {name: 'shaun', premium: true},
-    {name: 'yoshi', premium: false},
-    {name: 'mario', premium: false},
-    {name: 'chun-li', premium: true}
+const products = [
+    {name: 'gold star', price: 20},
+    {name: 'mushroom', price: 40},
+    {name: 'green shell', price: 30},
+    {name: 'banana skin', price: 10},
+    {name: 'red shell', price: 50}
 ];
 
-/*
-const premiumUsers = users.filter(user => {
-    return user.premium;
-    // if I needed to return users that are not premium, I need to flip the FALSW to TRUE
-    // return !user.premium;  
-});
-*/
+// create array that returns half price if over 30
 
-// we can shorten the arrow filter because we are just using a single return statement
-const premiumUsers = users.filter(user => user.premium);
-console.log(premiumUsers);
+const productSale = products.map(product => {
+    if (product.price <= 30) {
+        return product;
+    } else {
+        return {name: product.name, price: product.price / 2};
+    }
+});
+
+console.log(productSale);
