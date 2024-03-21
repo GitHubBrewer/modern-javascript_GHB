@@ -1,26 +1,36 @@
-// map method
-// takes an array, iterates through it and pushes the updated value into a new array
-const prices = [20, 10, 30, 25, 15, 40, 80, 5];
+// reduce method
+// returns any single value you want based on the values you iterate over
+const scores = [10, 20, 60, 40, 70, 90, 30];
 
-const salePrices = prices.map(price => price / 2);
-console.log(salePrices);
+// use reduce method to return a result of how many scores are over 50
+// takes in two parameters, accumulator and current
+// acc is a running total and is rememberd through each iteration
+// doesn't have to be a value, it could be an object that we add a property to
+// curr is the value of the item in the array that we are currently iterating through
+const result = scores.reduce((acc, curr) => {
+    if(curr > 50){
+        acc++;
+    }
+    // remember to return the acc or the code in the if block doesn't mean anything
+    return acc;
+    // this is where we declare the starting value of acc
+}, 0);
 
-const products = [
-    {name: 'gold star', price: 20},
-    {name: 'mushroom', price: 40},
-    {name: 'green shell', price: 30},
-    {name: 'banana skin', price: 10},
-    {name: 'red shell', price: 50}
+console.log(result);
+
+const complexScores = [
+    {player: 'mario', score: 50},
+    {player: 'yoshi', score: 30},
+    {player: 'mario', score: 70},
+    {player: 'crystal', score: 60}
 ];
 
-// create array that returns half price if over 30
-
-const productSale = products.map(product => {
-    if (product.price <= 30) {
-        return product;
-    } else {
-        return {name: product.name, price: product.price / 2};
+// we want to use the reduce method to calculate the total score of mario's scores
+const marioResult = complexScores.reduce((acc, curr) => {
+    if(curr.player === 'mario'){
+        acc += curr.score;
     }
-});
+    return acc;
+}, 0);
 
-console.log(productSale);
+console.log(marioResult);
