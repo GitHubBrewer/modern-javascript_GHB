@@ -42,3 +42,15 @@ addForm.addEventListener('submit', e => {
         addForm.reset();
     }
 });
+
+// delete todos
+// we don't want to add an eventListener to the trash icon since we would need to add it to each icon
+// we would also need a way to add it to any new items added to the list
+// instead we can just attach it to the list and rely on event bubbling to triger it
+list.addEventListener('click', e => {
+    // we need to filter for only clicks on the trash icon so we target the delete class
+    // an alternate condition is (e.target.classList.contains('delete'))
+    if (e.target.className.includes('delete')){
+    e.target.parentElement.remove();
+    }
+});
