@@ -25,3 +25,6 @@ input[type=text]:focus{
     color: #fff;
     opacity: 0.5; /* Firefox */
 }
+.filtered{
+    display: none !important;
+}

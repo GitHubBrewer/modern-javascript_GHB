@@ -3,6 +3,9 @@ const addForm = document.querySelector('.add');
 // 4. now we need to grab the ul to inject our template string into
 const list = document.querySelector('.todos');
 
+// for the search we need to grab the search class and the input field
+const search = document.querySelector('.search input');
+
 // 3. now we create a function to do something with the value we grab in the addForm
 // we do it outside the eventlistener to allow us to reuse it for other future functionality
 const generateTemplate = todo => {
@@ -53,4 +56,33 @@ list.addEventListener('click', e => {
     if (e.target.className.includes('delete')){
     e.target.parentElement.remove();
     }
+});
+
+// filter todos
+// we'll build the function outside the eventListener so we can use it for other needs down the road
+const filterTodos = (term) => {
+    // if we grab the list.children we'll have an HTML collection and we can't use most methods on an HTML collection
+    // to fix this we'll convert the HTML collection to an array
+    Array.from(list.children)
+        // now we can chain some array methods on the array we created
+        // first we will filter to find the items that don't contain the search term
+        .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+        // then we will add a class called filtered and then use css to set display to none
+        .forEach((todo) => todo.classList.add('filtered'));
+    // the above works fine until we start to backspace and need to remove the filtered class as needed
+    // we copy the code above and and flip the filter and remove the class
+    Array.from(list.children)
+        .filter((todo) => todo.textContent.toLowerCase().includes(term))
+        .forEach((todo) => todo.classList.remove('filtered'));
+};
+
+
+// keyup event
+// we'll attach the keyup event listener to the search input
+search.addEventListener('keyup', () => {
+    // we start by grabbing the input field with search
+    // then specify the value attribute, then trim any whitespace around it, then convert to lower case so our search is not case-sensitive
+    const term = search.value.trim().toLowerCase();
+    // we'll call this function that we created above
+    filterTodos(term);
 });
