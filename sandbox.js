@@ -1,28 +1,36 @@
-// timestamps
-// we can compare date objects by generating two date objects
-const before = new Date('February 1 2024 7:30:59');
-const now = new Date();
+// get a reference on the clock div
+const clock = document.querySelector('.clock');
 
-// now we can see their timestamps as milliseconds
-console.log(now.getTime(), before.getTime());
+// create a function for updating the time on the clock
+// using the setInterval to refresh the function every second
+const html = setInterval(() => {
+    // create the clock objects
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    // create the HTML template string
+    clock.textContent = `${hours}:${minutes}:${seconds}`;        
+}, 1000);
 
-// we can store the difference in a constant
-const diff = now.getTime() - before.getTime();
-console.log(diff)
+/* shaun's solution
+const tick = () => {
 
-// we can convert that diff to days
-// start by converting to minutes (1000 milliseconds\sec, 60 seconds\minute)
-const mins = Math.round(diff / 1000 / 60);
-// convert to hours (60 min\hour)
-const hours = Math.round(mins / 60); 
-// convert to days (24 hours\day)
-const days = Math.round(hours / 24); 
-console.log(mins);
-console.log(hours);
-console.log(days);
-// use in template string to note how old a blog post is
-console.log(`the blog was written ${days} ago`);
+  const now = new Date();
+  
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
 
-// we can also reverse this by converting timestamps into date objects
-const timestamp = 1675938474990;
-console.log(new Date(timestamp));
+  const html = `
+    <span>${h}</span> :
+    <span>${m}</span> :
+    <span>${s}</span>
+  `;
+
+  clock.innerHTML = html;
+
+};
+
+setInterval(tick, 1000);
+*/
