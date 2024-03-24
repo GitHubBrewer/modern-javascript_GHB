@@ -1,36 +1,30 @@
-// get a reference on the clock div
-const clock = document.querySelector('.clock');
+// date-fns
+// https://date-fns.org/
+// date-fns provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js.
 
-// create a function for updating the time on the clock
-// using the setInterval to refresh the function every second
-const html = setInterval(() => {
-    // create the clock objects
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    // create the HTML template string
-    clock.textContent = `${hours}:${minutes}:${seconds}`;        
-}, 1000);
+const now = new Date();
+const random = new Date(732462363);
 
-/* shaun's solution
-const tick = () => {
+// we use this library by invoking the dateFns object, then the dateFns function we want, then passing in a date object
+console.log(dateFns.isToday(now));
+console.log(dateFns.isToday(random));
 
-  const now = new Date();
-  
-  const h = now.getHours();
-  const m = now.getMinutes();
-  const s = now.getSeconds();
+// formatting options
+console.log(dateFns.format(now, 'yyyy'));
+console.log(dateFns.format(random, 'yyyy'));
+console.log(dateFns.format(now,'MMMM'));
+console.log(dateFns.format(random,'MMMM'));
+console.log(dateFns.format(now,'MMM'));
+console.log(dateFns.format(random,'MMM'));
+console.log(dateFns.format(now, 'eeee'));
+console.log(dateFns.format(random, 'eeee'));
+console.log(dateFns.format(now, 'do'));
+console.log(dateFns.format(random, 'do'));
+console.log(dateFns.format(now, 'eeee, do, MMMM, yyyy'));
+console.log(dateFns.format(random, 'eeee, do, MMMM, yyyy'));
 
-  const html = `
-    <span>${h}</span> :
-    <span>${m}</span> :
-    <span>${s}</span>
-  `;
+// comparing dates
+const before = new Date('February 1 2024 12:00:00');
 
-  clock.innerHTML = html;
-
-};
-
-setInterval(tick, 1000);
-*/
+console.log(dateFns.formatDistance(before, now));
+console.log(dateFns.formatDistance(before, now, {addSuffix: true}));
