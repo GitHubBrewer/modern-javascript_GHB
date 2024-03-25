@@ -1,21 +1,19 @@
-// making http requests
-// first we create the request object, the XML data type is old and this request can work with many data types
+// http request status codes
+// it isn't enough to just check the readyState because even a request sent to the wrong url will reach state 4
+
 const request = new XMLHttpRequest();
 
-// 3. we can track the progress of the request if we attach an eventListener to the request
-// we'll track the state changes https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
 request.addEventListener('readystatechange', () => {
-    // we can see in the console that it goes through 4 states from the request
-    // console.log(request, request.readyState);
-    // we only really care when it reaches readyState 4 so we can create an if statement for that
-    if (request.readyState === 4) {
-        // then we can grab the responseText
-        console.log(request.responseText);
+    if (request.readyState === 4 && request.status === 200) {
+        console.log(request, request.responseText);
+    } else if (request.readyState === 4) {
+        console.log(`could not fetch the data due to error ${request.status}`)
     }
 });
 
-// 1. we create the open request stating the method (GET) and the url
-request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
-// 2. we send the request
+// request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+// with the wrong url we get to state 4, but the response status is 404
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+    // The server cannot find the requested resource.
+request.open('GET', 'https://jsonplaceholder.typicode.com/todoss/');
 request.send();
-// console.log(request);
