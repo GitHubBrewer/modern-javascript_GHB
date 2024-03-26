@@ -1,8 +1,8 @@
-// handling JSON data
-// everything in a JSON file has to be in double-quotes except numbers and booleans and null
-// https://www.w3schools.com/js/js_json_intro.asp
+// callback hell
+// if we have several calls we need to make on different files and need to wait for each to complete before we proceed
 
-const getTodos = (callback) => {
+// add a new parameter for resource
+const getTodos = (resource, callback) => {
     const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', () => {
@@ -13,16 +13,34 @@ const getTodos = (callback) => {
             callback(`could not fetch the data due to error ${request.status}`, undefined);
         }
     });
-    // request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
-    request.open('GET', 'todos.json');
+    // change the request.open to accecpt an argument instead of a fixed entry
+    request.open('GET', resource);
     request.send();
 };
 
-getTodos((err, data) => {
-    console.log('callback fired');
+// now we can pass the address in for the first JSON file
+getTodos('todos/luigi.json', (err, data) => {
     if (err) {
         console.log(err);
     } else {
         console.log(data);
     }
+    // then follow the first call with the second
+    getTodos('todos/mario.json', (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data);
+        }
+        // and then the third
+        getTodos('todos/shaun.json', (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(data);
+            }
+        });
+    });
 });
+
+// this is a triangle of doom aka callback hell and is getting hard to maintain and read

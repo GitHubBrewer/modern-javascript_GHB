@@ -1,5 +1,0 @@
-[
-    {"text": "play mariokart", "author": "shaun", "points": 50, "VIP": true, "admin": null},
-    {"text": "buy some bread", "author": "Mario", "points": 50, "VIP": false, "admin": null},
-    {"text": "fix the plumbing", "author": "Luigi", "points": 50, "VIP": true, "admin": null}
-]
